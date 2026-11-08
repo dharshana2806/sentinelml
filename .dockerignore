@@ -1,0 +1,13 @@
+.venv
+.git
+results
+docs
+tests
+experiments
+dashboard
+*.egg-info
+**/__pycache__
+*.db
+artifacts/models
+artifacts/datasets
+artifacts/proposals
