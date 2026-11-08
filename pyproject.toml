@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinelml"
+version = "0.1.0"
+description = "Predictive reliability, root-cause diagnosis and counterfactual recovery for deployed ML models"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy", "pandas", "scipy", "scikit-learn", "joblib", "matplotlib",
+  "xgboost", "lightgbm", "shap",
+]
+
+[project.optional-dependencies]
+api = ["fastapi", "uvicorn", "sqlalchemy", "pydantic", "PyJWT", "python-multipart", "psycopg2-binary"]
+tracking = ["mlflow-skinny"]
+dashboard = ["streamlit", "requests"]
+dev = ["pytest", "pytest-cov", "httpx", "ruff"]
+
+[tool.setuptools.packages.find]
+include = ["sentinelml*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 110

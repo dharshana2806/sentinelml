@@ -1,0 +1,37 @@
+Real output of `python scripts\demo_api_flow.py http://localhost:8001` (Windows 10, Python 3.11), copied from the project owner's terminal.
+
+=== register + login
+logged in as demo-1e1ee6@example.com
+
+=== upload dataset + train model
+model 3 validation metrics: {'accuracy': 0.942, 'f1_macro': 0.942, 'roc_auc': 0.977, 'baseline_window_loss': 0.057, 'degradation_threshold': 0.1, 'train_seconds': 3.352}
+
+=== log production traffic: 7 clean batches, then 3 batches with 3 corrupted features
+1000 predictions logged
+
+=== monitoring (10 windows)
+window 0: psi_max=0.14  labelled_loss=0.09  alerts=0
+window 1: psi_max=0.25  labelled_loss=0.11  alerts=2
+window 2: psi_max=0.23  labelled_loss=0.03  alerts=1
+window 3: psi_max=0.23  labelled_loss=0.07  alerts=1
+window 4: psi_max=0.18  labelled_loss=0.04  alerts=0
+window 5: psi_max=0.23  labelled_loss=0.08  alerts=1
+window 6: psi_max=0.18  labelled_loss=0.11  alerts=1
+window 7: psi_max=6.28  labelled_loss=0.11  alerts=2
+window 8: psi_max=6.80  labelled_loss=0.16  alerts=2
+window 9: psi_max=7.12  labelled_loss=0.17  alerts=2
+
+=== failure prediction
+method: learned_failure_predictor | probability: 0.38 | alert: True
+
+=== diagnosis (suspected features, NOT proven causes)
+top suspects: ['x2', 'x0', 'x1', 'x3', 'x7']
+failure type probabilities: {'pipeline_mismatch': 0.9906, 'covariate_shift': 0.0072, 'label_shift': 0.0022}
+
+=== recovery: simulate -> validate -> human approve -> rollback
+  retrain_recent               eval_loss=0.063 gain=+0.013 feasible=True
+  align_suspect_features       eval_loss=0.070 gain=+0.007 feasible=True
+  no_action                    eval_loss=0.077 gain=+0.000 feasible=True
+  recalibrate                  eval_loss=0.080 gain=-0.003 feasible=True
+recommended: retrain_recent
+validation: validation_failed {'improves_holdout': False, 'no_regression_on_reference': True}

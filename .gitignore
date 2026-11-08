@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+*.db
+runs.jsonl
+.coverage
+artifacts/models/
+artifacts/datasets/
+artifacts/proposals/
+mlruns/
+.pytest_cache/
+.venv/
+*.egg-info/
