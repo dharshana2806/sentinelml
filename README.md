@@ -8,8 +8,8 @@ Research question: *can temporal failure prediction, root-cause diagnosis and co
 the reliability of deployed ML systems compared with conventional threshold-based monitoring?*
 
 > **Read this first - honest status.** The ML core, a reproducible failure benchmark, 8 experiments, a FastAPI backend and
-> 31 automated tests are implemented and were actually run. A React frontend, a live AWS deployment, a demo video and
-> screenshots are **not** done (see [docs/LIMITATIONS_AND_STATUS.md](docs/LIMITATIONS_AND_STATUS.md)). All experimental
+> 31 automated tests are implemented and were actually run. A React frontend, a live AWS deployment, a demo video 
+>  are **not** done (see [docs/LIMITATIONS_AND_STATUS.md](docs/LIMITATIONS_AND_STATUS.md)). All experimental
 > results are on a **simulated** failure benchmark that I designed; they show the approach is promising there, not that it
 > works on real production systems.
 
@@ -36,7 +36,7 @@ python scripts/train_baselines.py --dataset breast_cancer   # Phase-4 baselines 
 ```
 Windows cmd instructions: [docs/RUN_ON_WINDOWS.md](docs/RUN_ON_WINDOWS.md). Guided demo against a running server: `python scripts/demo_api_flow.py`.
 API configuration is by environment variable: `DATABASE_URL` (SQLite default, PostgreSQL supported), `SECRET_KEY`, `ARTIFACT_DIR`.
-Docker: `cp .env.example .env && docker compose up --build` (written but **not executed** in my build sandbox).
+Docker: `cp .env.example .env && docker compose up --build` (the API image builds in GitHub Actions CI; `docker compose up` itself has not been run).
 
 ## Results (all computed by `experiments/analyze.py`; full tables in `results/RESULTS.md`)
 Benchmark: 5 datasets (breast_cancer, wine, synthetic binary / multiclass / regression) x 8 streams x 600 windows, 400 injected
