@@ -1,3 +1,5 @@
+![ci](https://github.com/dharshana2806/sentinelml/actions/workflows/ci.yml/badge.svg)
+
 # SentinelML
 
 **Predictive reliability monitoring, root-cause diagnosis and counterfactual recovery for deployed ML models.**
