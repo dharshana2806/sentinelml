@@ -15,7 +15,7 @@ Core library; benchmark generation (40 streams); experiments E1-E8; FastAPI back
 | Survival analysis, temporal neural nets for failure prediction | Not implemented (binary onset classification only) |
 | LLM explanation layer (Phase 9) | Not implemented, deliberately: the ML system must stand alone and nothing here needed it |
 | Systematic literature review, DOIs | Not done; see LITERATURE_AND_GAPS.md provenance note |
-| Screenshots, demo video, performance/load testing, Playwright tests | Not done |
+| Demo video, performance/load testing, Playwright tests | Not done |
 | Production monitoring of SentinelML itself | Only request-ID JSON logs, `/health`, `/ready`; no metrics/alerting |
 
 ## Scientific limitations
